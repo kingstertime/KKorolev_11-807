@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class homework2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.next();
+        String s = sc.nextLine(); //bagfix
         int lenght = s.length();
         char[] a = s.toCharArray();
         for (int i = 0; i < lenght; i++) {
@@ -16,6 +16,3 @@ public class homework2 {
         System.out.print(s);
     }
 }
-/*
- Проблема с пробелом: после ввода строки с присутсвием пробела выполняет действие только до пробела и завершает команду.
-*/
