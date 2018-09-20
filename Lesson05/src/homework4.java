@@ -7,10 +7,10 @@ public class homework4 {
         System.out.println("Enter symbol-key:");
         String k = sc.next();
         if (k.equals("u") || k.equals("U")) {
-            s = s.toUpperCase();
+            s = s.toUpperCase(); // locale locale type
         }
         if (k.equals("l") || k.equals("L")) {
-            s = s.toLowerCase();
+            s = s.toLowerCase(); // locale locale type
         }
         System.out.println(s);
     }
