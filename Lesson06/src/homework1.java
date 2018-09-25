@@ -14,12 +14,8 @@ public class homework1 {
                     String x = arr[j - 1];
                     arr[j - 1] = arr[j];
                     arr[j] = x;
-
                 }
-
             }
-
-
         }
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
