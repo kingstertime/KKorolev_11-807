@@ -6,10 +6,13 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         //то же, что в v00
         TextAnalyzer a = new JaccardTextAnalyzer();
+        TextAnalyzer b = new CosTextAnalyzer();
         String s1 = "Мама мыла раму, а я ничего не делал";
         String s2 = "Я совсем ничего не делал";
+        double coef3 = b.analyze(new SimpleTextProvider(s1), new SimpleTextProvider(s2));
         double coef1 = a.analyze(new SimpleTextProvider(s1), new SimpleTextProvider(s2));
         System.out.println("Жаккард для просто строк: " + coef1);
+        System.out.println("Косинусная мера для просто строк: " + coef3);
 
         //Тоже вычисляем коэффициент, только сравниваем текст, хранящийся в двух файлах.
         //Текст в файлах точно такой же как при сравнении выше, поэтому результаты одинаковые
