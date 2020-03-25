@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+    {% block head %}
+        <title>
+                {% block title %}{% endblock %} - BookShop
+        </title>
+    {% endblock %}
+</head>
+<body>
+<div id="content">{% block content %}<h1>Bumblebee</h1>{% endblock %}</div>
+<div id="footer">
+    {% block footer %}{% endblock %}
+</div>
+<div>
+        <input type="button" value=" Show all " onClick='location.href="http://localhost:8080/spring_forms_and_validation_war_exploded/test"'>
+</div>
+</body>
+</html>
