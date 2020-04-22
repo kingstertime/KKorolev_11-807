@@ -23,7 +23,7 @@ public class LoggingAspect {
         System.err.println("Exception throwed : "+ ex);
     }
  
-    @Before("@annotation(MyLog)")
+    @Before("@annotation(LogAn)")
     public void log(JoinPoint joinPoint) throws Throwable {
         System.out.println("watch " + joinPoint.getSignature().getName());
     }

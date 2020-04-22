@@ -5,5 +5,5 @@ import java.lang.annotation.Target;
 
 ElementType.METHOD
 RetentionPolicy.RUNTIME
-public @interface MyLog {
+public @interface LogAn {
 }
