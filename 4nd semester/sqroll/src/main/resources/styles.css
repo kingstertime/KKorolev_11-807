@@ -1,0 +1,12 @@
+.news {
+    padding: 0;
+    list-style: none;
+}
+.news li {
+    margin-top: 10px;
+    padding: 100px 20px;
+    background-color: RGB(200, 200, 200);
+}
+.news .new {
+    background-color: lightblue;
+}
