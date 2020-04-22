@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  
 public class LoggingAspect {
  
-    @Before("execution(* ru.springuser.repositories.CrudRepository.*(..))")
+    @Before("execution(* someWhereRepository.*(..))")
     public void logBefore(JoinPoint joinPoint) {
  
         System.out.println("!log");
@@ -23,7 +23,7 @@ public class LoggingAspect {
         System.err.println("Exception throwed : "+ ex);
     }
  
-    @Before("@annotation(ru.springuser.annotation.MyLog)")
+    @Before("@annotation(MyLog)")
     public void log(JoinPoint joinPoint) throws Throwable {
         System.out.println("watch " + joinPoint.getSignature().getName());
     }
