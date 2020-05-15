@@ -1,0 +1,13 @@
+<Configuration xmlns:xi="http://www.w3.org/2001/XInclude" status="WARN">
+
+    <Appenders>
+        <JdbcAppender name="JdbcAppender"/>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="JdbcAppender"/>
+        </Root>
+    </Loggers>
+
+
+</Configuration>
