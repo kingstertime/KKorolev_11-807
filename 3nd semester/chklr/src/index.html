@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check js</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootst.." integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <form class="form-signin" method="post" name='registration' id="myForm" onsubmit="return validation();">
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12" style="background-color: lavender">
+                        <label for="lastName" class="sr-only">Фамилия</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Фамилия" required autofocus>
+                        <span id="check1" aria-required="true"></span>
+
+                        <label for="firstName" class="sr-only">Имя</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Имя" required autofocus>
+                        <span id="check2" aria-required="true"></span>
+
+                        <label for="thirdName" class="sr-only">Отчество</label>
+                        <input type="text" id="thirdName" name="thirdName" class="form-control" placeholder="Отчество" required autofocus>
+                        <span id="check3" aria-required="true"></span>
+
+                        <label for="email" class="sr-only">E-mail</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required autofocus>
+                        <span id="checkEmail" aria-required="true"></span>
+
+                        <label for="phone" class="sr-only">Телефон</label>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Номер телефона" required autofocus>
+                        <span id="checkPhone" aria-required="true"></span>
+
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-2 col-form-label" >Страна</label>
+                            <div class="col-sm-10">
+                                <select name="COUNTRY" id="inputState" class="form-control">
+                                    <option selected value="Default">Выберите...</option>
+                                    <option>Russia</option>
+                                    <option>Germany</option>
+                                    <option>Belarus</option>
+                                    <option>Poland</option>
+                                    <option>USA</option>
+                                </select>
+                                <span id="checkCountry" aria-required="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <input type="submit" class="btn btn-primary" value="Sign in">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/p.." integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstr.." integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+    function validation() {
+        let lName = document.registration.lastName;
+        let fName = document.registration.firstName;
+        let tName = document.registration.thirdName;
+        let cocantry = document.registration.COUNTRY;
+        let email = document.registration.email;
+        let phone = document.registration.phone;
+
+
+        if ((user_name(lName, 30, 'check1'))&& (user_name(fName, 30, 'check2')) && (user_name(tName, 30, 'check3')) && (countryValidate(cocantry)) && (validEmail(email)) && (validPhone(phone, 10))) {
+            return true;
+        }
+        return false;
+    }
+
+    function user_name(uName, max, id) {
+        let len = uName.value.length;
+        let letters =/^([a-zA-ZА-Яа-я '-])+$/;
+        if (len == 0) {
+            document.getElementById(id).innerHTML = 'Пожалуйста, введите данные';
+            return false;
+        }else if (!uName.value.match(letters)){
+            document.getElementById(id).innerHTML = 'ФИО должно содержать только буквы';
+            return false;
+        } else if (len > max) {
+            document.getElementById(id).innerHTML = 'Число символов не должен быть больше ' + max;
+            return false;
+        }
+        return true;
+    }
+
+    function validEmail(email) {
+        let m = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+// let m = /.+@.+\..+/;
+        if (!email.value.match(m)) {
+            document.getElementById('checkEmail').innerHTML = 'Пожалуйста, введите корректный адрес почты';
+            return false;
+        }
+        document.getElementById('checkEmail').innerHTML = "";
+        return true;
+
+    }
+
+    function validPhone(phone) {
+        var test = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+        if (!phone.value.match(test)){
+            document.getElementById('checkPhone').innerHTML = 'Номер телефона некорректный';
+            return false;
+        }
+        document.getElementById('checkPhone').innerHTML = "";
+        return true;
+    }
+
+    function countryValidate(country) {
+        if (country.value === "Default"){
+            document.getElementById('checkCountry').innerHTML = "Выберите страну";
+            return false;
+        }
+        document.getElementById('checkCountry').innerHTML = '';
+        return true;
+    }
+</script>
+</body>
+</html>

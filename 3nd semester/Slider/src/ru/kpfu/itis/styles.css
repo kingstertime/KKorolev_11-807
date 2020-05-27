@@ -1,0 +1,87 @@
+#slides{
+    position: relative;
+    height: 300px;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.showing{
+    opacity: 1;
+    z-index: 2;
+}
+
+
+.controls{
+    display: none;
+}
+
+.slide{
+    font-size: 40px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #333;
+    color: #fff;
+
+    background-size: cover;
+}
+
+.slide:nth-of-type(1){
+    background-color: red;
+    background-image: url('https://bipbap.ru/wp-content/uploads/2017/04/maxresdefault-2-6.jpg');
+}
+
+.slide:nth-of-type(2){
+    background-color: green;
+    background-image: url('http://kvant.space/sites/default/files/images/kosmos-fantastika-mirozdanie.jpg');
+}
+
+.slide:nth-of-type(3){
+    background-color: blue;
+    background-image: url('http://mirpozitiva.ru/uploads/posts/2016-11/1480505775_cosmos_0011.jpg');
+}
+
+.controls{
+    background: #eee;
+    color: #fff;
+    border: none;
+    padding: 100px 0px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    margin: 10px 0px 0px 10px;
+    width: 70px;
+}
+
+.controls:hover,
+.controls:focus{
+    background: #eee;
+    color: #333;
+}
+
+.container{
+    position: relative;
+}
+
+.buttons{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+    font-size: 0px;
+}

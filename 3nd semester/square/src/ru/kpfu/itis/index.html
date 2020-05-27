@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>А-А-А-А-А-А! ПОМОГИТЕ, Я ПАДАЮ!</title>
+    <style>
+        #div2 {
+            position: absolute;
+            background-color: red;
+            width: 30px;
+            height: 30px;
+        }
+        #div1 {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<button id="button">Если нажмёшь на меня - я упаду</button>
+<button id="speed">Speed</button>
+
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<script>
+    let sp = 1;
+    window.onload = function () {
+        document.getElementById("button").onclick = function (){
+            let div = document.getElementById("div2");
+            let i = 0;
+            let client_height = screen.height;
+            let timer = setInterval(function() {
+                if (i >= client_height) {
+                    clearInterval(timer);
+                } else {
+                    div.style.top = i.toString() + "px";
+                    i++;
+                }
+            }, sp);
+        }
+        document.getElementById("speed").onclick = function() {
+            sp = sp + 10;
+        }
+    };
+</script>
+</body>
+</html>
